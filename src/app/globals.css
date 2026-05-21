@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — "Atlas Editorial" */
+  --color-paper:        #F5F1E8;
+  --color-paper-2:      #ECE6D6;
+  --color-ink:          #0B1733;
+  --color-ink-2:        #16243F;
+  --color-ink-muted:    #4B5A7A;
+  --color-rule:         #C7BFAA;
+  --color-rule-2:       #D9D3C0;
+
+  --color-accent:       #0E4DA4;  /* World coin blue */
+  --color-accent-warm:  #F2C849;  /* World coin gold */
+  --color-flame:        #E2533B;  /* alerts / live indicator */
+  --color-emerald:      #1F7A4D;  /* gains */
+  --color-crimson:      #C0392B;  /* losses */
+
+  --color-band-americas:#E0A458;
+  --color-band-europe:  #6B7FD7;
+  --color-band-asia:    #D26A6A;
+  --color-band-africa:  #4FA67F;
+  --color-band-oceania: #5DA9C9;
+
+  /* Type */
+  --font-display: var(--font-fraunces);
+  --font-sans:    var(--font-geist);
+  --font-mono:    var(--font-geist-mono);
+
+  /* Radii — passport-style, mostly tight */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+
+  /* Shadows — restrained, paper-like */
+  --shadow-paper: 0 1px 0 rgba(11, 23, 51, 0.05), 0 8px 32px -16px rgba(11, 23, 51, 0.18);
+  --shadow-stamp: inset 0 0 0 1px rgba(11, 23, 51, 0.18);
+
+  /* Background grid (latitude / longitude) */
+  --grid-line: rgba(11, 23, 51, 0.06);
+  --grid-line-strong: rgba(11, 23, 51, 0.12);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html, body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-image:
+      linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+    background-attachment: fixed;
+  }
+
+  /* Stronger meridian / equator lines every 5 grid cells. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right,  var(--grid-line-strong) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line-strong) 1px, transparent 1px);
+    background-size: 320px 320px;
+    background-position: -1px -1px;
+    z-index: 0;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Tabular numbers everywhere we render market data. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display), ui-serif, Georgia, serif; }
+  .font-mono    { font-family: var(--font-mono),    ui-monospace, SFMono-Regular, monospace; }
+
+  .ink            { color: var(--color-ink); }
+  .ink-muted      { color: var(--color-ink-muted); }
+
+  .bg-paper       { background-color: var(--color-paper); }
+  .bg-paper-2     { background-color: var(--color-paper-2); }
+  .bg-ink         { background-color: var(--color-ink); color: var(--color-paper); }
+  .bg-ink-2       { background-color: var(--color-ink-2); color: var(--color-paper); }
+
+  .border-rule    { border-color: var(--color-rule); }
+  .border-rule-2  { border-color: var(--color-rule-2); }
+
+  .text-gain      { color: var(--color-emerald); }
+  .text-loss      { color: var(--color-crimson); }
+  .text-flame     { color: var(--color-flame); }
+  .text-accent    { color: var(--color-accent); }
+
+  .ring-rule      { box-shadow: var(--shadow-stamp); }
+
+  .stamp-shadow   { box-shadow: var(--shadow-paper); }
+
+  /* Hairline rule used to separate editorial blocks. */
+  .hairline       { background: linear-gradient(to right, transparent, var(--color-rule), transparent); height: 1px; }
+
+  /* Region color bands. */
+  .band-americas  { background: var(--color-band-americas); }
+  .band-europe    { background: var(--color-band-europe); }
+  .band-asia      { background: var(--color-band-asia); }
+  .band-africa    { background: var(--color-band-africa); }
+  .band-oceania   { background: var(--color-band-oceania); }
+}
+
+/* Subtle live ticker pulse used on the "Live" pill. */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.92); }
+}
+.live-dot {
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
