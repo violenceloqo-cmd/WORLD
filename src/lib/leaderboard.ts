@@ -81,18 +81,28 @@ export async function buildLeaderboardSnapshot(): Promise<LeaderboardSnapshot> {
   const worldHolders = worldMint ? await getHolderCount(worldMint) : null;
 
   const launched = rows.filter((r) => r.mint);
-  const totalMarketCapUsd = launched.reduce(
+  const countryMarketCapUsd = launched.reduce(
     (acc, r) => acc + (r.market?.marketCapUsd ?? 0),
     0,
   );
-  const totalVolume24hUsd = launched.reduce(
+  const countryVolume24hUsd = launched.reduce(
     (acc, r) => acc + (r.market?.volume24hUsd ?? 0),
     0,
   );
-  const totalHolders = launched.reduce(
+  const countryHolders = launched.reduce(
     (acc, r) => acc + (r.holders ?? 0),
     0,
   );
+
+  // $WORLD is the hub — include its market data in the global totals so the
+  // headline stats reflect the full economy (hub + country sub-coins).
+  const worldMarketCapUsd = worldMint ? worldMarket?.marketCapUsd ?? 0 : 0;
+  const worldVolume24hUsd = worldMint ? worldMarket?.volume24hUsd ?? 0 : 0;
+  const worldHoldersCount = worldHolders ?? 0;
+
+  const totalMarketCapUsd = countryMarketCapUsd + worldMarketCapUsd;
+  const totalVolume24hUsd = countryVolume24hUsd + worldVolume24hUsd;
+  const totalHolders = countryHolders + worldHoldersCount;
 
   return {
     rows,
