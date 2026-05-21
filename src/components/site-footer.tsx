@@ -1,4 +1,8 @@
 import Link from "next/link";
+import { resolveMint } from "@/data/countries";
+import { WORLD } from "@/data/world";
+
+const worldMint = resolveMint(WORLD.mint);
 
 export function SiteFooter() {
   return (
@@ -6,7 +10,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="space-y-3">
           <div className="font-display text-2xl font-semibold leading-none tracking-tight">
-            World
+            World Coin
           </div>
           <p className="ink-muted max-w-sm text-sm leading-relaxed">
             One hub coin. Fifty country sub-coins. A live scoreboard of
@@ -26,9 +30,27 @@ export function SiteFooter() {
         <FooterCol
           title="Build"
           links={[
-            { href: "https://pump.fun", label: "pump.fun", external: true },
-            { href: "https://dexscreener.com", label: "DexScreener", external: true },
-            { href: "https://solscan.io", label: "Solscan", external: true },
+            {
+              href: worldMint
+                ? `https://pump.fun/coin/${worldMint}`
+                : "https://pump.fun",
+              label: "pump.fun",
+              external: true,
+            },
+            {
+              href: worldMint
+                ? `https://dexscreener.com/solana/${worldMint}`
+                : "https://dexscreener.com",
+              label: "DexScreener",
+              external: true,
+            },
+            {
+              href: worldMint
+                ? `https://solscan.io/token/${worldMint}`
+                : "https://solscan.io",
+              label: "Solscan",
+              external: true,
+            },
           ]}
         />
         <div className="space-y-3">

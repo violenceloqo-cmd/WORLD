@@ -23,12 +23,9 @@ export function SiteHeader() {
               className="h-full w-full object-contain"
             />
           </span>
-          <div className="flex flex-col leading-none">
-            <span className="font-display text-base font-semibold tracking-tight">World</span>
-            <span className="ink-muted text-[10px] uppercase tracking-[0.22em]">
-              The Country Economy
-            </span>
-          </div>
+          <span className="font-display text-base font-semibold tracking-tight">
+            World Coin
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
