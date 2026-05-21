@@ -13,14 +13,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b border-[var(--color-rule-2)] bg-[var(--color-paper)]/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link href="/" className="group inline-flex items-center gap-3">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-ink">
+          <span className="relative inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
             <Image
-              src="/world-logo.png"
+              src="/earth-logo.svg"
               alt="$WORLD logo"
               width={32}
               height={32}
               priority
-              className="h-7 w-7 object-contain invert"
+              className="h-8 w-8 object-contain"
             />
             <span className="pointer-events-none absolute -inset-px rounded-full ring-1 ring-[var(--color-accent-warm)]/60" />
           </span>
