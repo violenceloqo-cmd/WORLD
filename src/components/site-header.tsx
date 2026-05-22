@@ -15,11 +15,12 @@ export function SiteHeader() {
         <Link href="/" className="group inline-flex items-center gap-3">
           <span className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
             <Image
-              src="/earth-logo.svg"
+              src="/earth-globe.png"
               alt="$WORLD logo"
               width={48}
               height={48}
               priority
+              unoptimized
               className="h-full w-full object-contain"
             />
           </span>
