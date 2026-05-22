@@ -9,7 +9,7 @@ export const WORLD = {
   description:
     "World is the mother coin connecting 50 country sub-coins on pump.fun. Each country fights for the top of the global leaderboard — by market cap and by holders.",
   /** Paste the Solana mint address from pump.fun between the quotes. */
-  mint: "",
+  mint: "HKynTN2spdCDe98b8ZFduS4rmyPeqmEzHb4rRPQKpump",
   /** Leave "" to auto-generate https://pump.fun/coin/{mint} */
   pumpFunUrl: "",
   /** Brand palette for the World coin itself. */
