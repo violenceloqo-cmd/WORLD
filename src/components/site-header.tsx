@@ -13,7 +13,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b border-[var(--color-rule-2)] bg-[var(--color-paper)]/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link href="/" className="group inline-flex items-center gap-3">
-          <span className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-12 sm:w-12">
+          <span className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
             <Image
               src="/earth-globe.png"
               alt="$WORLD logo"
@@ -21,7 +21,7 @@ export function SiteHeader() {
               height={48}
               priority
               unoptimized
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           </span>
           <span className="font-display text-base font-semibold tracking-tight">
