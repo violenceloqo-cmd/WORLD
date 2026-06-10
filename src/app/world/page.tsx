@@ -52,8 +52,8 @@ export default async function WorldPage() {
               $WORLD
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-              The hub. The flag of flags. $WORLD is the gravity that pulls 50
-              country sub-coins into a single on-chain economy on pump.fun.
+              The hub. The flag of flags. $WORLD is the gravity that pulls 48
+              World Cup nation sub-coins into a single on-chain economy on pump.fun.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -94,7 +94,7 @@ export default async function WorldPage() {
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
           <div className="mb-10 max-w-2xl">
             <div className="ink-muted text-[10px] font-medium uppercase tracking-[0.22em]">
-              Creator fees · all 50 country coins
+              Creator fees · all 48 nation coins
             </div>
             <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight md:text-5xl">
               Every nation fuels $WORLD.
@@ -140,7 +140,7 @@ export default async function WorldPage() {
           <Stat label="Combined cap" value={formatUsd(snapshot.aggregates.totalMarketCapUsd)} />
           <Stat label="Combined 24h vol" value={formatUsd(snapshot.aggregates.totalVolume24hUsd)} />
           <Stat label="Citizens" value={formatCompactInt(snapshot.aggregates.totalHolders)} />
-          <Stat label="Real-world pop." value={formatInt(totalPop)} sub="across all 50 countries" />
+          <Stat label="Real-world pop." value={formatInt(totalPop)} sub="across all 48 nations" />
           <Stat
             label="Reach"
             value={`${((totalPop / 8_100_000_000) * 100).toFixed(0)}%`}

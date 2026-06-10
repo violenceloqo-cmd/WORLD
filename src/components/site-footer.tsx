@@ -13,7 +13,7 @@ export function SiteFooter() {
             World Coin
           </div>
           <p className="ink-muted max-w-sm text-sm leading-relaxed">
-            One hub coin. Fifty country sub-coins. A live scoreboard of
+            One hub coin. Forty-eight World Cup nations. A live scoreboard of
             nations on pump.fun. Built for the stadium era of memecoins.
           </p>
         </div>

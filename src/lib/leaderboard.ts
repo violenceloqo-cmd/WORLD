@@ -43,7 +43,7 @@ export type LeaderboardSnapshot = {
 };
 
 /**
- * Build a leaderboard snapshot — batched DexScreener lookup for all 50
+ * Build a leaderboard snapshot — batched DexScreener lookup for all 48
  * countries + the World coin, optional Helius holder counts.
  */
 export async function buildLeaderboardSnapshot(): Promise<LeaderboardSnapshot> {

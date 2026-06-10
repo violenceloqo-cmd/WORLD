@@ -1,0 +1,25 @@
+{
+  "name": "world-coin-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Batch-deploy World Cup nation coins on pump.fun (USDC pairs).",
+  "type": "module",
+  "scripts": {
+    "launch": "tsx src/index.ts",
+    "launch:dry": "tsx src/index.ts --dry-run",
+    "launch:one": "tsx src/index.ts --only",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@pump-fun/pump-sdk": "^1.36.0",
+    "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0",
+    "dotenv": "^16.4.5",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.0"
+  }
+}

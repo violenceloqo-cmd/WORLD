@@ -59,7 +59,7 @@ export default async function HomePage() {
             </h1>
             <p className="ink-muted mt-6 max-w-xl text-lg leading-relaxed">
               <span className="font-display italic ink">$WORLD</span> is the hub of a
-              new on-chain economy — 50 country sub-coins on pump.fun, ranked
+              new on-chain economy — 48 World Cup 2026 nation sub-coins on pump.fun, ranked
               live by market cap and holders. Nations compete. The leaderboard
               decides.
             </p>
@@ -139,8 +139,8 @@ export default async function HomePage() {
             />
             <ConceptCard
               n="02"
-              title="50 country sub-coins"
-              body="One coin per country, picked by population. Each launches on pump.fun with its own ticker — $USA, $CHN, $RUS, $GER, $JPN, and so on."
+              title="48 World Cup nations"
+              body="One coin per nation at FIFA World Cup 2026™. Each launches on pump.fun with its own ticker — $USA, $BRA, $GER, $JPN, $ENG, and so on."
             />
             <ConceptCard
               n="03"
@@ -173,7 +173,7 @@ export default async function HomePage() {
             href="/leaderboard"
             className="hidden text-sm font-medium uppercase tracking-[0.14em] ink-muted hover:ink sm:inline-flex"
           >
-            See all 50 →
+            See all 48 →
           </Link>
         </div>
         <LeaderboardLive initial={snapshot} compact limit={10} />
@@ -182,7 +182,7 @@ export default async function HomePage() {
             href="/leaderboard"
             className="text-sm font-medium uppercase tracking-[0.14em] ink-muted hover:ink"
           >
-            See all 50 →
+            See all 48 →
           </Link>
         </div>
       </section>

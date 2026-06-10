@@ -22,7 +22,7 @@ export default async function LeaderboardPage() {
               Leaderboard
             </h1>
             <p className="ink-muted mt-3 max-w-xl text-base leading-relaxed">
-              All 50 country sub-coins, ranked live. Pre-launch nations sit at
+              All 48 World Cup nation sub-coins, ranked live. Pre-launch nations sit at
               the bottom until their coin goes live on pump.fun.
             </p>
           </div>

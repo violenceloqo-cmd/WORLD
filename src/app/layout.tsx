@@ -28,22 +28,22 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "World — the hub coin of 50 countries",
+    default: "World — the hub coin of 48 nations",
     template: "%s · World",
   },
   description:
-    "$WORLD is the mother coin connecting 50 country sub-coins on pump.fun. Watch nations fight for the top of the global leaderboard.",
+    "$WORLD is the mother coin connecting 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for the top of the global leaderboard.",
   openGraph: {
-    title: "World — the hub coin of 50 countries",
+    title: "World — the hub coin of 48 nations",
     description:
-      "$WORLD connects 50 country sub-coins on pump.fun. Watch nations fight for #1.",
+      "$WORLD connects 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for #1.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "World — the hub coin of 50 countries",
+    title: "World — the hub coin of 48 nations",
     description:
-      "$WORLD connects 50 country sub-coins on pump.fun. Watch nations fight for #1.",
+      "$WORLD connects 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for #1.",
   },
 };
 

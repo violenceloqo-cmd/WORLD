@@ -18,7 +18,7 @@ type Props = {
 
 /**
  * Live stats grid for an individual country page. Re-uses the global
- * `/api/leaderboard` snapshot (so 50 country pages share one cached
+ * `/api/leaderboard` snapshot (so 48 country pages share one cached
  * response) and re-renders every 10 seconds.
  */
 export function CountryLiveStats({ iso, initial }: Props) {

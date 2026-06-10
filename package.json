@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "launch:dry": "npm run launch:dry --prefix services/coin-launcher",
+    "launch": "npm run launch --prefix services/coin-launcher"
   },
   "dependencies": {
     "next": "^15.5.0",

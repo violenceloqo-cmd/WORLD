@@ -7,7 +7,7 @@ export const WORLD = {
   symbol: "$WORLD",
   tagline: "The hub coin of the country economy.",
   description:
-    "World is the mother coin connecting 50 country sub-coins on pump.fun. Each country fights for the top of the global leaderboard — by market cap and by holders.",
+    "World is the mother coin connecting 48 World Cup 2026 nation sub-coins on pump.fun. Each country fights for the top of the global leaderboard — by market cap and by holders.",
   /** Paste the Solana mint address from pump.fun between the quotes. */
   mint: "HKynTN2spdCDe98b8ZFduS4rmyPeqmEzHb4rRPQKpump",
   /** Leave "" to auto-generate https://pump.fun/coin/{mint} */
@@ -26,5 +26,5 @@ export const COUNTRY_CREATOR_FEE_SPLIT = {
   /** Share reserved for marketing (country launches, KOLs, ads). */
   marketingPct: 50,
   summary:
-    "50% of creator fees from all 50 country sub-coins fund $WORLD buybacks and burns. The other 50% funds marketing.",
+    "50% of creator fees from all 48 country sub-coins fund $WORLD buybacks and burns. The other 50% funds marketing.",
 } as const;

@@ -28,9 +28,9 @@ export default function ManifestoPage() {
         </p>
       </Section>
 
-      <Section n="03" title="Fifty nations, one chain.">
+      <Section n="03" title="Forty-eight nations, one chain.">
         <p>
-          We pick 50 countries by population. Each gets a sub-coin on pump.fun
+          Every nation at FIFA World Cup 2026™ gets a sub-coin on pump.fun
           with its own ticker, palette, and community. The ticker is a flag.
           The chart is a scoreboard. The leaderboard is a stadium.
         </p>
@@ -56,7 +56,7 @@ export default function ManifestoPage() {
       <Section n="06" title="Creator fees flow home.">
         <p>
           Every country sub-coin on pump.fun earns <strong>creator fees</strong> on
-          trades. That revenue is split in two — always, across all 50 nations:
+          trades. That revenue is split in two — always, across all 48 nations:
         </p>
         <ul className="mt-4 space-y-3 border-l-2 border-[var(--color-accent)] pl-4">
           <li>
