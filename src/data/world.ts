@@ -1,6 +1,4 @@
-/**
- * Metadata for the mother coin. Paste pump.fun mint into `mint` when $WORLD launches.
- */
+/** Metadata for the mother coin ($WORLD on pump.fun). */
 export const WORLD = {
   name: "World",
   ticker: "WORLD",
@@ -8,10 +6,9 @@ export const WORLD = {
   tagline: "The hub coin of the country economy.",
   description:
     "World is the mother coin connecting 48 World Cup 2026 nation sub-coins on pump.fun. Each country fights for the top of the global leaderboard — by market cap and by holders.",
-  /** Paste the Solana mint address from pump.fun between the quotes. */
-  mint: "HKynTN2spdCDe98b8ZFduS4rmyPeqmEzHb4rRPQKpump",
+  mint: "FjVmShf1gThLRsZagcACEAcwX3wTsoXUmBLYeYiQpump",
   /** Leave "" to auto-generate https://pump.fun/coin/{mint} */
-  pumpFunUrl: "",
+  pumpFunUrl: "https://pump.fun/coin/FjVmShf1gThLRsZagcACEAcwX3wTsoXUmBLYeYiQpump",
   /** Brand palette for the World coin itself. */
   colors: ["#0E4DA4", "#F2C849"] as const,
 } as const;
