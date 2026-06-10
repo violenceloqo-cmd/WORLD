@@ -28,7 +28,7 @@ export const USDC_MINT = new PublicKey(
 );
 
 export const SITE_URL = "https://worldcoins.fun";
-export const TWITTER_URL = "https://x.com/worldcoinspump";
+export const TWITTER_URL = "https://x.com/worldcoinpmpfun";
 
 export const PUMP_IPFS_URL = "https://pump.fun/api/ipfs";
 

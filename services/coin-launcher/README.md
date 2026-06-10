@@ -58,7 +58,7 @@ npm run launch -- --only br --force
 | Ticker | from `countries.ts` (e.g. `BRZ`) |
 | Image | literal flag (1024×1024 PNG via flagcdn) |
 | Website | `https://worldcoins.fun/c/{iso}` |
-| Twitter | `https://x.com/worldcoinspump` |
+| Twitter | `https://x.com/worldcoinpmpfun` |
 | Pair | **USDC** (`quoteMint`) |
 
 After each successful create, the mint is written to `src/data/countries.ts` and logged in `deployments.json`.

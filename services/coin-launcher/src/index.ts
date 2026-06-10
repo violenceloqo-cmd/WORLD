@@ -3,6 +3,7 @@ import { Keypair, Connection } from "@solana/web3.js";
 import { COUNTRIES, resolveMint } from "../../../src/data/countries.ts";
 import {
   LAUNCHER,
+  TWITTER_URL,
   countryPageUrl,
   loadConfig,
 } from "./config.js";
@@ -62,7 +63,7 @@ async function main() {
 
   console.log("World Coin — USDC pair launcher");
   console.log(`  Site:     https://worldcoins.fun/`);
-  console.log(`  Twitter:  https://x.com/worldcoinspump`);
+  console.log(`  Twitter:  ${TWITTER_URL}`);
   console.log(`  Wallet:   ${dryRun ? "(dry-run — no wallet)" : payer!.publicKey.toBase58()}`);
   console.log(`  Pair:     USDC`);
   console.log(`  Pending:  ${pending.length} / ${countries.length}`);
