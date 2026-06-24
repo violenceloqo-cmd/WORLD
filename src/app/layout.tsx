@@ -32,18 +32,18 @@ export const metadata: Metadata = {
     template: "%s · World Coin",
   },
   description:
-    "$WORLD is the mother coin connecting 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for the top of the global leaderboard.",
+    "$world is the mother coin connecting 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for the top of the global leaderboard.",
   openGraph: {
     title: "World Coin",
     description:
-      "$WORLD connects 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for #1.",
+      "$world connects 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for #1.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "World Coin",
     description:
-      "$WORLD connects 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for #1.",
+      "$world connects 48 World Cup 2026 nation sub-coins on pump.fun. Watch nations fight for #1.",
   },
 };
 

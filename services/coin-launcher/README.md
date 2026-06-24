@@ -56,9 +56,9 @@ npm run launch -- --only br --force
 |-------|-------|
 | Name | `Brazil` (plain country name) |
 | Ticker | from `countries.ts` (e.g. `BRZ`) |
-| Image | literal flag (1024×1024 PNG via flagcdn) |
-| Website | `https://worldcoins.fun/c/{iso}` |
-| Twitter | `https://x.com/worldcoinpmpfun` |
+| Image | country-colored WORLD globe (1024×1024 PNG, recolored per nation) |
+| Website | `https://w-o-r-l-d.xyz` |
+| Twitter | `https://x.com/w_o_r_l_d_xyz` |
 | Pair | **USDC** (`quoteMint`) |
 
 After each successful create, the mint is written to `src/data/countries.ts` and logged in `deployments.json`.

@@ -21,7 +21,7 @@ export default function NotFound() {
         href="/world"
         className="mt-12 font-mono text-xs uppercase tracking-[0.18em] ink-muted hover:ink"
       >
-        Or visit $WORLD →
+        Or visit $world →
       </Link>
     </div>
   );

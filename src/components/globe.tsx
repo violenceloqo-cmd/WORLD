@@ -93,12 +93,12 @@ export function Globe({
       phi: initialPhi,
       theta,
       dark: 0,
-      diffuse: 1.05,
-      mapSamples: 16_000,
-      mapBrightness: 6,
-      baseColor: [0.96, 0.94, 0.88],     // paper
-      markerColor: [0.054, 0.302, 0.643], // accent blue
-      glowColor: [0.96, 0.94, 0.88],
+      diffuse: 1.1,
+      mapSamples: 22_000,
+      mapBrightness: 7,
+      baseColor: [0.12, 0.32, 0.52],      // deep ocean blue
+      markerColor: [0.32, 0.92, 0.98],    // bright cyan markers
+      glowColor: [0.16, 0.58, 0.68],      // teal atmosphere
       markers: allMarkers,
       onRender: (state) => {
         if (!pointerRef.current.pressing) {

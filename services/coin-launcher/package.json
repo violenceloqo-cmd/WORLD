@@ -8,6 +8,7 @@
     "launch": "tsx src/index.ts",
     "launch:dry": "tsx src/index.ts --dry-run",
     "launch:one": "tsx src/index.ts --only",
+    "globes": "tsx src/preview-globes.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {

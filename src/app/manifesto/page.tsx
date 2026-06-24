@@ -22,7 +22,7 @@ export default function ManifestoPage() {
 
       <Section n="02" title="World is the league.">
         <p>
-          $WORLD is the hub, the gravity, the league office. Holding $WORLD is
+          $world is the hub, the gravity, the league office. Holding $world is
           holding the entire economy of country coins — not picking one
           favorite, but owning the contest itself.
         </p>
@@ -60,7 +60,7 @@ export default function ManifestoPage() {
         </p>
         <ul className="mt-4 space-y-3 border-l-2 border-[var(--color-accent)] pl-4">
           <li>
-            <strong>50%</strong> → $WORLD <strong>buybacks &amp; burns</strong>.
+            <strong>50%</strong> → $world <strong>buybacks &amp; burns</strong>.
             Country volume directly strengthens the hub coin.
           </li>
           <li>
@@ -69,19 +69,19 @@ export default function ManifestoPage() {
           </li>
         </ul>
         <p className="mt-4 ink-muted text-sm">
-          The more any nation trades, the more fuel $WORLD receives. That is the
+          The more any nation trades, the more fuel $world receives. That is the
           flywheel.
         </p>
       </Section>
 
       <Section n="07" title="The rules.">
         <ul className="list-decimal space-y-2 pl-5">
-          <li>$WORLD launches first. Always the hub.</li>
+          <li>$world launches first. Always the hub.</li>
           <li>Country coins roll out in waves on pump.fun.</li>
           <li>One coin per country. No duplicates. No fakes.</li>
           <li>Branding follows the flag. Palette comes from the cloth.</li>
           <li>Leaderboard is the source of truth.</li>
-          <li>Creator fees: 50% $WORLD buyback/burn · 50% marketing.</li>
+          <li>Creator fees: 50% $world buyback/burn · 50% marketing.</li>
         </ul>
       </Section>
 
@@ -90,7 +90,7 @@ export default function ManifestoPage() {
           See who&apos;s winning
         </ButtonLink>
         <ButtonLink href="/world" variant="ghost">
-          About $WORLD
+          About $world
         </ButtonLink>
       </div>
     </article>

@@ -58,7 +58,7 @@ export default async function HomePage() {
               <span className="italic">one coin.</span>
             </h1>
             <p className="ink-muted mt-6 max-w-xl text-lg leading-relaxed">
-              <span className="font-display italic ink">$WORLD</span> is the hub of a
+              <span className="font-display italic ink">$world</span> is the hub of a
               new on-chain economy — 48 World Cup 2026 nation sub-coins on pump.fun, ranked
               live by market cap and holders. Nations compete. The leaderboard
               decides.
@@ -70,7 +70,7 @@ export default async function HomePage() {
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </ButtonLink>
               <ButtonLink href="/world" variant="ghost">
-                About $WORLD
+                About $world
               </ButtonLink>
               <ButtonLink
                 href={WORLD.pumpFunUrl ?? "https://pump.fun"}
@@ -102,6 +102,15 @@ export default async function HomePage() {
             <div className="pointer-events-none absolute inset-0 -z-0">
               <CrossHair />
             </div>
+            {/* Cyan atmospheric halo — the glow from the banner. */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(56,214,230,0.35) 0%, rgba(14,77,164,0.18) 45%, transparent 70%)",
+              }}
+            />
             <Globe
               points={points}
               markers={markers}
@@ -128,13 +137,13 @@ export default async function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2">
             <ConceptCard
               n="01"
-              title="$WORLD is the hub"
-              body="The mother coin. Treasury, identity, and the gravity that pulls the country economy together. Holding $WORLD is holding the league."
+              title="$world is the hub"
+              body="The mother coin. Treasury, identity, and the gravity that pulls the country economy together. Holding $world is holding the league."
             />
             <ConceptCard
               n="05"
               title="Fees flow home"
-              body="50% of creator fees from every country sub-coin fund $WORLD buybacks and burns. The other 50% powers marketing for that nation’s coin and the wider league."
+              body="50% of creator fees from every country sub-coin fund $world buybacks and burns. The other 50% powers marketing for that nation’s coin and the wider league."
               className="sm:col-span-2"
             />
             <ConceptCard

@@ -26,10 +26,10 @@ export function PriceChart({ data, positive, metric = "marketCap" }: Props) {
   const gradientId = isMarketCap ? "fillMarketCap" : "fillPrice";
   const color =
     positive === true
-      ? "#1F7A4D"
+      ? "#34D399"
       : positive === false
-        ? "#C0392B"
-        : "#0B1733";
+        ? "#F2576B"
+        : "#38D6E6";
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer>
@@ -45,9 +45,9 @@ export function PriceChart({ data, positive, metric = "marketCap" }: Props) {
             type="number"
             scale="time"
             domain={["dataMin", "dataMax"]}
-            tick={{ fill: "#4B5A7A", fontSize: 10 }}
+            tick={{ fill: "#8EA0C2", fontSize: 10 }}
             tickLine={false}
-            axisLine={{ stroke: "#C7BFAA" }}
+            axisLine={{ stroke: "#283448" }}
             tickFormatter={(t) =>
               new Date(t).toLocaleDateString("en-US", {
                 month: "short",
@@ -57,20 +57,20 @@ export function PriceChart({ data, positive, metric = "marketCap" }: Props) {
           />
           <YAxis
             dataKey="v"
-            tick={{ fill: "#4B5A7A", fontSize: 10 }}
+            tick={{ fill: "#8EA0C2", fontSize: 10 }}
             tickLine={false}
             axisLine={false}
             tickFormatter={(v) => formatValue(v)}
             width={isMarketCap ? 72 : 56}
           />
           <Tooltip
-            cursor={{ stroke: "#C7BFAA", strokeDasharray: "3 3" }}
+            cursor={{ stroke: "#283448", strokeDasharray: "3 3" }}
             contentStyle={{
-              background: "#F5F1E8",
-              border: "1px solid #C7BFAA",
+              background: "#0D1424",
+              border: "1px solid #283448",
               borderRadius: 6,
               fontSize: 12,
-              color: "#0B1733",
+              color: "#EAF1FF",
             }}
             formatter={(value: number) => [formatValue(value), tooltipLabel]}
             labelFormatter={(t: number) =>

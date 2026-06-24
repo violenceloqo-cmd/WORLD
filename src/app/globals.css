@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — "Atlas Editorial" */
-  --color-paper:        #F5F1E8;
-  --color-paper-2:      #ECE6D6;
-  --color-ink:          #0B1733;
-  --color-ink-2:        #16243F;
-  --color-ink-muted:    #4B5A7A;
-  --color-rule:         #C7BFAA;
-  --color-rule-2:       #D9D3C0;
+  /* Palette — "Deep Space" (dark, matching the glowing-globe banner) */
+  --color-paper:        #05070E;  /* page background — near-black space */
+  --color-paper-2:      #0D1424;  /* raised panels / surfaces */
+  --color-ink:          #EAF1FF;  /* primary text (also white button bg) */
+  --color-ink-2:        #FFFFFF;  /* button hover */
+  --color-ink-muted:    #8EA0C2;  /* secondary text */
+  --color-rule:         #283448;  /* borders / hairlines */
+  --color-rule-2:       #1A2236;  /* softer borders */
 
-  --color-accent:       #0E4DA4;  /* World coin blue */
+  --color-accent:       #38D6E6;  /* cyan — the atmospheric rim glow */
   --color-accent-warm:  #F2C849;  /* World coin gold */
-  --color-flame:        #E2533B;  /* alerts / live indicator */
-  --color-emerald:      #1F7A4D;  /* gains */
-  --color-crimson:      #C0392B;  /* losses */
+  --color-flame:        #FF6B4A;  /* alerts / live indicator */
+  --color-emerald:      #34D399;  /* gains */
+  --color-crimson:      #F2576B;  /* losses */
 
   --color-band-americas:#E0A458;
   --color-band-europe:  #6B7FD7;
@@ -33,18 +33,18 @@
   --radius-lg: 10px;
   --radius-xl: 16px;
 
-  /* Shadows — restrained, paper-like */
-  --shadow-paper: 0 1px 0 rgba(11, 23, 51, 0.05), 0 8px 32px -16px rgba(11, 23, 51, 0.18);
-  --shadow-stamp: inset 0 0 0 1px rgba(11, 23, 51, 0.18);
+  /* Shadows — dark depth with a faint cyan lift */
+  --shadow-paper: 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 48px -24px rgba(0, 0, 0, 0.85);
+  --shadow-stamp: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 
   /* Background grid (latitude / longitude) */
-  --grid-line: rgba(11, 23, 51, 0.06);
-  --grid-line-strong: rgba(11, 23, 51, 0.12);
+  --grid-line: rgba(120, 160, 220, 0.05);
+  --grid-line-strong: rgba(120, 160, 220, 0.09);
 }
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   html, body {
@@ -57,11 +57,16 @@
   }
 
   body {
+    /* Deep-space wash: a soft cyan aurora up top fading into black, layered
+       over a faint lat/long grid — echoes the glowing-globe banner. */
+    background-color: var(--color-paper);
     background-image:
+      radial-gradient(120% 80% at 50% -10%, rgba(56, 214, 230, 0.10) 0%, rgba(56, 214, 230, 0.03) 32%, transparent 60%),
+      radial-gradient(100% 70% at 50% 120%, rgba(14, 77, 164, 0.12) 0%, transparent 55%),
       linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    background-position: -1px -1px;
+    background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+    background-position: 0 0, 0 0, -1px -1px, -1px -1px;
     background-attachment: fixed;
   }
 
@@ -80,7 +85,7 @@
   }
 
   ::selection {
-    background: var(--color-ink);
+    background: var(--color-accent);
     color: var(--color-paper);
   }
 
@@ -139,4 +144,23 @@
 }
 .live-dot {
   animation: live-pulse 1.6s ease-in-out infinite;
+}
+
+/* Hero globe: gentle vertical float + breathing cyan halo. */
+@keyframes globe-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes halo-breathe {
+  0%, 100% { opacity: 0.75; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+}
+.globe-float {
+  animation: globe-float 7s ease-in-out infinite;
+}
+.globe-halo {
+  animation: halo-breathe 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .globe-float, .globe-halo, .live-dot { animation: none; }
 }

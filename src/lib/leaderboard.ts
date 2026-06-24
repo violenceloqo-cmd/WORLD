@@ -94,7 +94,7 @@ export async function buildLeaderboardSnapshot(): Promise<LeaderboardSnapshot> {
     0,
   );
 
-  // $WORLD is the hub — include its market data in the global totals so the
+  // $world is the hub — include its market data in the global totals so the
   // headline stats reflect the full economy (hub + country sub-coins).
   const worldMarketCapUsd = worldMint ? worldMarket?.marketCapUsd ?? 0 : 0;
   const worldVolume24hUsd = worldMint ? worldMarket?.volume24hUsd ?? 0 : 0;

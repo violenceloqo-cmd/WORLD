@@ -1,5 +1,5 @@
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { Globe } from "@/components/globe";
+import Image from "next/image";
 import { LeaderboardLive } from "@/components/leaderboard-live";
 import { ButtonLink, LiveDot, Pill, Stat } from "@/components/ui";
 import { COUNTRIES, resolveMint } from "@/data/countries";
@@ -13,7 +13,7 @@ import {
 } from "@/lib/format";
 
 export const revalidate = 60;
-export const metadata = { title: "$WORLD" };
+export const metadata = { title: "$world" };
 
 export default async function WorldPage() {
   const snapshot = await buildLeaderboardSnapshot();
@@ -25,18 +25,16 @@ export default async function WorldPage() {
     WORLD.pumpFunUrl.trim() ||
     (worldMint ? `https://pump.fun/coin/${worldMint}` : null);
 
-  const points = COUNTRIES.map((c) => ({
-    lat: c.lat,
-    lng: c.lng,
-    weight: 0.5 + Math.min(1, c.population / 1_500_000_000) * 0.5,
-  }));
-
   return (
     <>
       {/* HERO */}
       <section
         className="relative overflow-hidden border-b border-[var(--color-rule-2)]"
-        style={{ background: `linear-gradient(180deg, ${WORLD.colors[0]} 0%, ${WORLD.colors[0]}EE 60%, ${WORLD.colors[0]}CC 100%)`, color: "#F5F1E8" }}
+        style={{
+          background:
+            "radial-gradient(120% 90% at 75% 30%, rgba(14,77,164,0.45) 0%, transparent 55%), radial-gradient(90% 80% at 60% 40%, rgba(56,214,230,0.14) 0%, transparent 50%), linear-gradient(180deg, #0A1428 0%, #05070E 100%)",
+          color: "#EAF1FF",
+        }}
       >
         <div
           aria-hidden
@@ -49,10 +47,10 @@ export default async function WorldPage() {
               <LiveDot /> The mother coin
             </Pill>
             <h1 className="mt-6 font-display text-[12vw] font-semibold leading-[0.92] tracking-[-0.02em] sm:text-7xl md:text-[9rem]">
-              $WORLD
+              $world
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-              The hub. The flag of flags. $WORLD is the gravity that pulls 48
+              The hub. The flag of flags. $world is the gravity that pulls 48
               World Cup nation sub-coins into a single on-chain economy on pump.fun.
             </p>
 
@@ -63,7 +61,7 @@ export default async function WorldPage() {
                   variant="primary"
                   external
                 >
-                  Buy $WORLD
+                  Buy $world
                   <ExternalLink className="h-4 w-4" aria-hidden />
                 </ButtonLink>
               ) : (
@@ -84,7 +82,31 @@ export default async function WorldPage() {
           </div>
 
           <div className="relative flex items-center justify-center">
-            <Globe points={points} size={520} className="relative z-10" />
+            <div className="relative z-10 flex aspect-square w-full max-w-[520px] items-center justify-center">
+              <div
+                aria-hidden
+                className="globe-halo pointer-events-none absolute left-1/2 top-1/2 h-[92%] w-[92%] rounded-full blur-2xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(56,214,230,0.45) 0%, rgba(255,255,255,0.12) 45%, transparent 70%)",
+                }}
+              />
+              <Image
+                src="/world-globe.png"
+                alt="$world — the mother coin globe"
+                width={520}
+                height={520}
+                priority
+                unoptimized
+                className="globe-float relative h-full w-full select-none object-contain"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle at 50% 50%, #000 58%, rgba(0,0,0,0.65) 68%, transparent 76%)",
+                  WebkitMaskImage:
+                    "radial-gradient(circle at 50% 50%, #000 58%, rgba(0,0,0,0.65) 68%, transparent 76%)",
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -97,7 +119,7 @@ export default async function WorldPage() {
               Creator fees · all 48 nation coins
             </div>
             <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight md:text-5xl">
-              Every nation fuels $WORLD.
+              Every nation fuels $world.
             </h2>
             <p className="ink-muted mt-3 text-base leading-relaxed">
               {COUNTRY_CREATOR_FEE_SPLIT.summary}
@@ -106,8 +128,8 @@ export default async function WorldPage() {
           <div className="grid gap-4 md:grid-cols-2">
             <FeeSplitCard
               pct={COUNTRY_CREATOR_FEE_SPLIT.worldBuybackBurnPct}
-              title="$WORLD buybacks & burns"
-              body="Half of all country sub-coin creator fees are used to buy back and burn $WORLD. More trading across the league means more deflationary pressure on the hub."
+              title="$world buybacks & burns"
+              body="Half of all country sub-coin creator fees are used to buy back and burn $world. More trading across the league means more deflationary pressure on the hub."
               accent={WORLD.colors[0]}
             />
             <FeeSplitCard
@@ -127,7 +149,7 @@ export default async function WorldPage() {
             The country economy
           </div>
           <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight md:text-5xl">
-            What $WORLD powers.
+            What $world powers.
           </h2>
           <p className="ink-muted mt-3 max-w-2xl text-base leading-relaxed">
             Live, aggregated stats across every launched country coin. The
@@ -154,7 +176,7 @@ export default async function WorldPage() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <div className="ink-muted text-[10px] font-medium uppercase tracking-[0.22em]">
-              Powered by $WORLD
+              Powered by $world
             </div>
             <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight md:text-5xl">
               Top 10 nations.

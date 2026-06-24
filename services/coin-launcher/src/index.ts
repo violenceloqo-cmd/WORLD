@@ -3,12 +3,13 @@ import { Keypair, Connection } from "@solana/web3.js";
 import { COUNTRIES, resolveMint } from "../../../src/data/countries.ts";
 import {
   LAUNCHER,
+  SITE_URL,
   TWITTER_URL,
   countryPageUrl,
   loadConfig,
 } from "./config.js";
 import { createUsdcCoin, assertWalletFunded } from "./create-coin.js";
-import { fetchFlagPng } from "./flags.js";
+import { renderCountryGlobe } from "./globe.js";
 import { uploadMetadata } from "./ipfs.js";
 import {
   appendDeploymentLog,
@@ -62,7 +63,7 @@ async function main() {
   });
 
   console.log("World Coin — USDC pair launcher");
-  console.log(`  Site:     https://worldcoins.fun/`);
+  console.log(`  Site:     ${SITE_URL}/`);
   console.log(`  Twitter:  ${TWITTER_URL}`);
   console.log(`  Wallet:   ${dryRun ? "(dry-run — no wallet)" : payer!.publicKey.toBase58()}`);
   console.log(`  Pair:     USDC`);
@@ -94,13 +95,13 @@ async function main() {
     let lastErr: unknown;
     for (let attempt = 1; attempt <= LAUNCHER.maxRetries; attempt++) {
       try {
-        const imagePng = await fetchFlagPng(c.iso);
+        const imagePng = await renderCountryGlobe(c.iso, c.colors);
         const { metadataUri } = await uploadMetadata(
           {
             name: c.name,
             symbol: c.ticker,
             iso: c.iso,
-            website: countryPageUrl(c.iso),
+            website: SITE_URL,
             imagePng,
           },
           cfg.pinataJwt,

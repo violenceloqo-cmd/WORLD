@@ -23,7 +23,7 @@ export function SiteFooter() {
           links={[
             { href: "/", label: "Home" },
             { href: "/leaderboard", label: "Leaderboard" },
-            { href: "/world", label: "$WORLD" },
+            { href: "/world", label: "$world" },
             { href: "/manifesto", label: "Manifesto" },
           ]}
         />
@@ -60,7 +60,7 @@ export function SiteFooter() {
           <p className="ink-muted text-xs leading-relaxed">
             World is a community memecoin universe. Country tickers are
             symbolic — they do not represent or endorse any nation, state,
-            or government. 50% of country sub-coin creator fees fund $WORLD
+            or government. 50% of country sub-coin creator fees fund $world
             buybacks and burns; 50% fund marketing. Do your own research before
             purchasing.
           </p>
@@ -70,7 +70,7 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-4 py-4 text-xs ink-muted sm:flex-row sm:items-center sm:px-6">
           <span>© {new Date().getFullYear()} World Coin Universe.</span>
           <span className="font-mono uppercase tracking-[0.18em]">
-            Lat 0° / Lng 0° · Atlas Editorial
+            Lat 0° / Lng 0° · Deep Space
           </span>
         </div>
       </div>
