@@ -2,7 +2,7 @@
   "name": "world-coin-launcher",
   "version": "0.1.0",
   "private": true,
-  "description": "Batch-deploy World Cup nation coins on pump.fun (USDC pairs).",
+  "description": "Batch-deploy World Cup nation coins on pump.fun (SOL pairs).",
   "type": "module",
   "scripts": {
     "launch": "tsx src/index.ts",

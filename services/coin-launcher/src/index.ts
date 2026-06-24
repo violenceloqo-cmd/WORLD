@@ -8,7 +8,7 @@ import {
   countryPageUrl,
   loadConfig,
 } from "./config.js";
-import { createUsdcCoin, assertWalletFunded } from "./create-coin.js";
+import { createSolCoin, assertWalletFunded } from "./create-coin.js";
 import { renderCountryGlobe } from "./globe.js";
 import { uploadMetadata } from "./ipfs.js";
 import {
@@ -62,11 +62,11 @@ async function main() {
     return true;
   });
 
-  console.log("World Coin — USDC pair launcher");
+  console.log("World Coin — SOL pair launcher");
   console.log(`  Site:     ${SITE_URL}/`);
   console.log(`  Twitter:  ${TWITTER_URL}`);
   console.log(`  Wallet:   ${dryRun ? "(dry-run — no wallet)" : payer!.publicKey.toBase58()}`);
-  console.log(`  Pair:     USDC`);
+  console.log(`  Pair:     SOL`);
   console.log(`  Pending:  ${pending.length} / ${countries.length}`);
   if (dryRun) console.log("  Mode:     DRY RUN (no txs)\n");
   else console.log("");
@@ -88,7 +88,7 @@ async function main() {
     console.log(`  iso: ${c.iso}  page: ${countryPageUrl(c.iso)}`);
 
     if (dryRun) {
-      console.log(`  (dry-run) would create USDC-paired coin "${c.name}" / ${c.ticker}\n`);
+      console.log(`  (dry-run) would create SOL-paired coin "${c.name}" / ${c.ticker}\n`);
       continue;
     }
 
@@ -108,7 +108,7 @@ async function main() {
         );
 
         const mintKeypair = Keypair.generate();
-        const { signature, mint } = await createUsdcCoin({
+        const { signature, mint } = await createSolCoin({
           connection,
           payer: payer!,
           mintKeypair,

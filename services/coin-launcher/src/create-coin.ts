@@ -8,9 +8,7 @@ import {
   VersionedTransaction,
   type Signer,
 } from "@solana/web3.js";
-import { USDC_MINT } from "./config.js";
-
-export type CreateUsdcCoinInput = {
+export type CreateSolCoinInput = {
   connection: Connection;
   payer: Signer;
   mintKeypair: Keypair;
@@ -19,18 +17,19 @@ export type CreateUsdcCoinInput = {
   metadataUri: string;
 };
 
-export type CreateUsdcCoinResult = {
+export type CreateSolCoinResult = {
   signature: string;
   mint: string;
 };
 
 /**
- * Create a pump.fun coin on a USDC-paired bonding curve (no initial buy).
+ * Create a pump.fun coin on a SOL-paired bonding curve (no initial buy).
+ * Omit quoteMint so the SDK uses the default SOL curve.
  * @see https://github.com/pump-fun/pump-public-docs/blob/main/docs/instructions/COIN_CREATION.md
  */
-export async function createUsdcCoin(
-  input: CreateUsdcCoinInput,
-): Promise<CreateUsdcCoinResult> {
+export async function createSolCoin(
+  input: CreateSolCoinInput,
+): Promise<CreateSolCoinResult> {
   const creator = input.payer.publicKey;
 
   const createIx = await PUMP_SDK.createV2Instruction({
@@ -42,7 +41,6 @@ export async function createUsdcCoin(
     user: creator,
     mayhemMode: false,
     cashback: false,
-    quoteMint: USDC_MINT,
   });
 
   const computeIx = ComputeBudgetProgram.setComputeUnitLimit({ units: 350_000 });

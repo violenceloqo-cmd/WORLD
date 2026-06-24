@@ -33,22 +33,23 @@ export function CountryLiveStats({ iso, initial }: Props) {
   const snapshot = data ?? initial;
   const row = snapshot.rows.find((r) => r.iso === iso);
   const market = row?.market ?? null;
-  const isLaunched = !!row?.mint && !!market;
+  const isLaunched = !!row?.mint;
+  const hasMarket = !!market;
   const change = market?.change24hPct ?? null;
 
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 md:grid-cols-6">
       <Stat
         label="Price"
-        value={isLaunched ? formatPrice(market?.priceUsd ?? null) : "—"}
+        value={isLaunched && hasMarket ? formatPrice(market?.priceUsd ?? null) : "—"}
       />
       <Stat
         label="Market cap"
-        value={isLaunched ? formatUsd(market?.marketCapUsd ?? null) : "—"}
+        value={isLaunched && hasMarket ? formatUsd(market?.marketCapUsd ?? null) : "—"}
       />
       <Stat
         label="24h volume"
-        value={isLaunched ? formatUsd(market?.volume24hUsd ?? null) : "—"}
+        value={isLaunched && hasMarket ? formatUsd(market?.volume24hUsd ?? null) : "—"}
       />
       <Stat
         label="24h change"
@@ -56,11 +57,11 @@ export function CountryLiveStats({ iso, initial }: Props) {
       />
       <Stat
         label="Holders"
-        value={isLaunched ? formatCompactInt(row?.holders ?? null) : "—"}
+        value={isLaunched && hasMarket ? formatCompactInt(row?.holders ?? null) : "—"}
       />
       <Stat
         label="Liquidity"
-        value={isLaunched ? formatUsd(market?.liquidityUsd ?? null) : "—"}
+        value={isLaunched && hasMarket ? formatUsd(market?.liquidityUsd ?? null) : "—"}
       />
     </div>
   );

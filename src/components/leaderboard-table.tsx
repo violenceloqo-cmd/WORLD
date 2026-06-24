@@ -43,8 +43,8 @@ export function LeaderboardTable({ rows, compact, limit, className }: Props) {
         r.iso.toLowerCase().includes(q)
       );
     });
-    const launched = filtered.filter((r) => r.mint && r.market);
-    const pending = filtered.filter((r) => !r.mint || !r.market);
+    const launched = filtered.filter((r) => r.mint);
+    const pending = filtered.filter((r) => !r.mint);
     const launchedSorted = [...launched].sort((a, b) => {
       const av = pick(a, sort) ?? -Infinity;
       const bv = pick(b, sort) ?? -Infinity;
@@ -145,7 +145,8 @@ export function LeaderboardTable({ rows, compact, limit, className }: Props) {
 }
 
 function Row({ row, rank }: { row: LeaderboardRow; rank: number }) {
-  const launched = !!row.mint && !!row.market;
+  const launched = !!row.mint;
+  const hasMarket = !!row.market;
   const change = row.market?.change24hPct ?? null;
   const positive = change === null ? null : change >= 0;
 
@@ -182,14 +183,18 @@ function Row({ row, rank }: { row: LeaderboardRow; rank: number }) {
 
       <div className="text-right font-mono tabular text-sm">
         {launched ? (
-          formatUsd(row.market?.marketCapUsd ?? null)
+          hasMarket ? (
+            formatUsd(row.market?.marketCapUsd ?? null)
+          ) : (
+            <Pill tone="muted" className="ml-auto">Live</Pill>
+          )
         ) : (
           <Pill tone="muted" className="ml-auto">Pre-launch</Pill>
         )}
       </div>
 
       <div className="text-right font-mono tabular text-sm ink-muted">
-        {launched ? formatPrice(row.market?.priceUsd ?? null) : "—"}
+        {launched && hasMarket ? formatPrice(row.market?.priceUsd ?? null) : "—"}
       </div>
 
       <div className="text-right font-mono tabular text-sm ink-muted">
@@ -197,7 +202,7 @@ function Row({ row, rank }: { row: LeaderboardRow; rank: number }) {
       </div>
 
       <div className="flex items-center justify-end gap-1.5">
-        {launched ? (
+        {launched && hasMarket ? (
           <>
             {positive === true ? (
               <ArrowUpRight className="h-3.5 w-3.5 text-gain" aria-hidden />

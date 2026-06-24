@@ -1,6 +1,6 @@
 # World Coin Launcher
 
-Batch-deploy the 48 World Cup nation coins on [pump.fun](https://pump.fun) as **USDC-paired** tokens (no initial buy).
+Batch-deploy the 48 World Cup nation coins on [pump.fun](https://pump.fun) as **SOL-paired** tokens (no initial buy).
 
 Your private key stays on your machine — never paste it into chat or commit it.
 
@@ -24,7 +24,7 @@ npm install
 The launcher reads **both** `services/coin-launcher/.env` and the repo root `.env`.
 If `HELIUS_API_KEY` is set in root `.env`, it is used as the RPC automatically.
 
-Fund the deployer wallet with **~0.5–1 SOL** (tx fees only; USDC is not required for create-only launches).
+Fund the deployer wallet with **~0.5–1 SOL** (tx fees only; no initial buy required).
 
 ## Usage
 
@@ -59,7 +59,7 @@ npm run launch -- --only br --force
 | Image | country-colored WORLD globe (1024×1024 PNG, recolored per nation) |
 | Website | `https://w-o-r-l-d.xyz` |
 | Twitter | `https://x.com/w_o_r_l_d_xyz` |
-| Pair | **USDC** (`quoteMint`) |
+| Pair | **SOL** (default bonding curve) |
 
 After each successful create, the mint is written to `src/data/countries.ts` and logged in `deployments.json`.
 

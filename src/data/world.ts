@@ -6,9 +6,9 @@ export const WORLD = {
   tagline: "The hub coin of the country economy.",
   description:
     "World is the mother coin connecting 48 World Cup 2026 nation sub-coins on pump.fun. Each country fights for the top of the global leaderboard — by market cap and by holders.",
-  mint: "BnVEt3AjtRCqC3eHKjm8np4apcM9RMieTSsbYYmUpump",
+  mint: "29Yh3mDBBAEhHrda1gWiiMse5oAdKZz1EVCbsqKBpump",
   /** Leave "" to auto-generate https://pump.fun/coin/{mint} */
-  pumpFunUrl: "https://pump.fun/coin/BnVEt3AjtRCqC3eHKjm8np4apcM9RMieTSsbYYmUpump",
+  pumpFunUrl: "https://pump.fun/coin/29Yh3mDBBAEhHrda1gWiiMse5oAdKZz1EVCbsqKBpump",
   xUrl: "https://x.com/w_o_r_l_d_xyz",
   /** Brand palette for the World coin itself. */
   colors: ["#0E4DA4", "#F2C849"] as const,

@@ -52,7 +52,7 @@ export default async function CountryPage({
 
   // Sort launched countries by market cap to compute live rank.
   const launchedSorted = snapshot.rows
-    .filter((r) => r.mint && r.market)
+    .filter((r) => r.mint)
     .sort(
       (a, b) =>
         (b.market?.marketCapUsd ?? 0) - (a.market?.marketCapUsd ?? 0),
@@ -63,7 +63,8 @@ export default async function CountryPage({
 
   const row = snapshot.rows.find((r) => r.iso === country.iso)!;
   const market = row.market;
-  const isLaunched = !!row.mint && !!market;
+  const isLaunched = !!row.mint;
+  const hasMarket = !!market;
   const change = market?.change24hPct ?? null;
   const positive = change === null ? null : change >= 0;
 
@@ -125,6 +126,16 @@ export default async function CountryPage({
               <span className="font-mono text-xs uppercase tracking-[0.18em] opacity-80">
                 ISO {country.iso3} · pop. {formatInt(country.population)}
               </span>
+              {isLaunched ? (
+                <a
+                  href={`https://solscan.io/token/${row.mint}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 block max-w-full truncate font-mono text-[11px] tracking-[0.04em] opacity-80 underline-offset-2 hover:underline"
+                >
+                  {row.mint}
+                </a>
+              ) : null}
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -179,7 +190,7 @@ export default async function CountryPage({
           </div>
           <FlagBar colors={country.colors} className="h-10 w-3" />
         </div>
-        {isLaunched ? (
+        {isLaunched && hasMarket ? (
           <PriceChart
             metric="marketCap"
             data={syntheticSeries(
@@ -189,6 +200,10 @@ export default async function CountryPage({
             )}
             positive={positive}
           />
+        ) : isLaunched ? (
+          <div className="grid h-64 place-items-center rounded-[10px] border border-dashed border-[var(--color-rule)] text-sm ink-muted">
+            ${country.ticker} is live on pump.fun — market data is indexing.
+          </div>
         ) : (
           <div className="grid h-64 place-items-center rounded-[10px] border border-dashed border-[var(--color-rule)] text-sm ink-muted">
             ${country.ticker} is not yet launched — chart will appear when the

@@ -2,8 +2,6 @@ import dotenv from "dotenv";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { PublicKey } from "@solana/web3.js";
-
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "../../..");
 const launcherEnv = path.join(here, "../.env");
@@ -21,11 +19,6 @@ function loadEnvFile(filePath: string) {
 // Root .env first (DEPLOYER_PRIVATE_KEY, HELIUS_API_KEY), then launcher overrides.
 loadEnvFile(rootEnv);
 loadEnvFile(launcherEnv);
-
-/** Mainnet USDC — pump.fun USDC-paired bonding curve quote mint. */
-export const USDC_MINT = new PublicKey(
-  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-);
 
 export const SITE_URL = "https://w-o-r-l-d.xyz";
 export const TWITTER_URL = "https://x.com/w_o_r_l_d_xyz";
